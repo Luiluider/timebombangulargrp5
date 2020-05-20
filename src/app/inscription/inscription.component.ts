@@ -14,12 +14,9 @@ export class InscriptionComponent implements OnInit {
   constructor(private srvUser : UserService) { }
 
   ngOnInit() {
-
-    this.srvUser.reload();
   }
 
   public subscribe() {
-
     this.srvUser.inscription(this.user);
     this.user = new User();
   }

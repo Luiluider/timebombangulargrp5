@@ -10,7 +10,6 @@ export class AppConfigService {
   public httpOptions : Object = null;
 
   constructor() {
-
   
    }
 }

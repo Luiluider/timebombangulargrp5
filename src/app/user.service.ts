@@ -23,15 +23,14 @@ export class UserService {
   }
 
   public inscription(user) {
-    this.http.post<User>("${ this.apiUrl }" + "/subscribe", user)
+    this.http.post<User>(this.apiUrl + "/subscribe", user)
         .subscribe(respUser => {
-          this.users.push(respUser);
           this.router.navigate(['/connexion']);
         });
   }
 
   public connexion(user) {
-    this.http.post<User>("${ this.apiUrl }" + "/login", user)
+    this.http.post<User>(this.apiUrl + "/login", user)
         .subscribe(respUser => {
           this.user = respUser;
           this.router.navigate(['/lobby']);

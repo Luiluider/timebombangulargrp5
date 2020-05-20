@@ -4,15 +4,15 @@
     <div class="card-body">
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text" class = "btn btn-light" id="">Login</span>
+                <span class="input-group-text" class = "btn btn-light" id="" >Login</span>
             </div>
-            <input class = "form-control" type ="text" placeholder = "Login"/>
+            <input [(ngModel)] = "user.username" class = "form-control" type ="text" placeholder = "Login"/>
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" class = "btn btn-light" id="">Password</span>
             </div>
-            <input class = "form-control" type ="password"/>
+            <input [(ngModel)] = "user.password" class = "form-control" type ="password"/>
         </div>
         <button class = "btn btn-primary" (click)="seConnecter()"> Connexion </button>
         <button class = "btn btn-light" (click)="inscription()"> S'inscrire </button>
