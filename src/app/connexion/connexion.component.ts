@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-connexion',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  user = new User();
 
-  constructor() { }
+  constructor(private srvUser: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public seConnecter() {
+    this.srvUser.connexion(this.user);
   }
-
 }
