@@ -1,1 +1,30 @@
-<p>lobby works!</p>
+<p>Voici la liste des tables que vous pouvez rejoindre</p>
+
+<br/>
+<br/>
+<br/>
+
+<table>
+    <thead>
+      <tr>
+        <th>Nom de la partie</th>
+        <th>Nombre de joueurs</th>
+        <th>Etat de la partie</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let match of srvMatch.matches">
+        <td>{{match.name}}</td>
+        <td>{{match.size}}</td>
+        <td>{{match.state}}</td>
+        <td>
+          <button>Rejoindre</button>
+        </td>
+      </tr>
+    </tbody>
+  
+  
+</table>
+

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchService } from '../match.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-lobby',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LobbyComponent implements OnInit {
 
-  constructor() { }
+  constructor(public srvMatch: MatchService, public srvUser: UserService) { }
 
   ngOnInit(): void {
+    this.srvMatch.reload();
+    this.srvUser.reload();
   }
+
+
+
+
+  public rejoindreMatch(){
+  
+  }
+
+
+  public regarderMatch() {
+
+  }
+
+
+
+
+
+
 
 }
