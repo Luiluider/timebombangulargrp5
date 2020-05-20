@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-inscription',
@@ -7,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
+  user = new User();
 
-  ngOnInit(): void {
+  constructor(private srvUser : UserService) { }
+
+  ngOnInit() {
+
+    this.srvUser.reload();
   }
 
+  public subscribe() {
 
+    this.srvUser.inscription(this.user);
+    this.user = new User();
+  }
 
 }
 
