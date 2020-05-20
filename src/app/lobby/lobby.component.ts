@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit {
+  isPlaying:false; //false si la partie n'a pas commencé et qu'on peut la rejoindre, vraie sinon et que l'on peut la regarder en spectateur
 
   constructor(public srvMatch: MatchService, public srvUser: UserService) { }
 
@@ -20,12 +21,9 @@ export class LobbyComponent implements OnInit {
 
 
   public rejoindreMatch(){
-  
-  }
-
-
-  public regarderMatch() {
-
+    //Gerer le fait de rejoindre en 
+    this.srvMatch.joinMatch();
+      
   }
 
 

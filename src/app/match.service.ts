@@ -28,7 +28,7 @@ export class MatchService {
 // [GET] http://176.143.99.66:8080/api/matches
 
    public loadHistory() {
-    this.http.get<Array<Match>>("${ this.apiUrl }" + "/terminated")
+    this.http.get<Array<Match>>(`${ this.apiUrl}/terminated`)
     .subscribe(matches => this.matches = matches);
   }
   // - Liste des parties terminées -

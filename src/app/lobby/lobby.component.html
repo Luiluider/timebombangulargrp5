@@ -1,8 +1,13 @@
-<p>Voici la liste des tables que vous pouvez rejoindre</p>
+<button>Créer une nouvelle partie</button>
 
 <br/>
 <br/>
 <br/>
+
+
+
+<p>Voici la liste des tables que vous pouvez rejoindre</p>
+
 
 <table>
     <thead>
@@ -20,7 +25,7 @@
         <td>{{match.size}}</td>
         <td>{{match.state}}</td>
         <td>
-          <button>Rejoindre</button>
+            <button (click)="rejoindreMatch()">Rejoindre</button>
         </td>
       </tr>
     </tbody>
