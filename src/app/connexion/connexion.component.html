@@ -1,12 +1,20 @@
-<input class = "form-control" type ="text" placeholder = "Login"/>
-<input class = "form-control" type ="password"/>
-<button class = "btn btn-primary" (click)="seConnecter()"> Connexion </button>
-<button class = "btn btn-dark" (click)="inscription()"> S'inscrire </button>
 
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header">Connexion</div>
+    <div class="card-header"><b>Connexion</b></div>
     <div class="card-body">
-      <h5 class="card-title">Dark card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" class = "btn btn-light" id="">Login</span>
+            </div>
+            <input class = "form-control" type ="text" placeholder = "Login"/>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" class = "btn btn-light" id="">Password</span>
+            </div>
+            <input class = "form-control" type ="password"/>
+        </div>
+        <button class = "btn btn-primary" (click)="seConnecter()"> Connexion </button>
+        <button class = "btn btn-light" (click)="inscription()"> S'inscrire </button>
     </div>
-  </div>
+</div>
