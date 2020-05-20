@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private srvInscription : InscriptionService) { }
 
   ngOnInit(): void {
   }
 
+
+
 }
+
+
