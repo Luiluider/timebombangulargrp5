@@ -9,10 +9,38 @@
 	background-size: 100% 100%;
 }
 
+#logo {
+
+    position : absolute; top : 20px; left : 20px;
+    width:220px;
+	height:159px;
+}
+
+#dynamite {
+
+    position: absolute; top : 170px; left : 625px;
+    z-index: 2;
+    width: 17px;
+    height: 40px;
+}
+
+#explosion {
+
+    position: absolute; top : 155px; left : 617px;
+    z-index : 3;
+    width: 30px;
+    height: 30px;
+}
+
 #connexionTitre {
 
-    Position : relative; top : 80px;
+    Position : relative; top : 140px;
     font-size: 60px;
     font-weight: 800;
-    color: white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(https://www.chaletdejardin.fr/wp/wp-content/uploads/2016/07/Bois-naturel-dabri-de-jardin.jpg);
+    text-align: center;
+    z-index: 1;
 }
