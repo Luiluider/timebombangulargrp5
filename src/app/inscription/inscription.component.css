@@ -1,0 +1,46 @@
+#timeBombFond{
+
+    background-image:url("/assets/timeBomb.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    position : absolute;
+    width:100%;
+	height:100%;
+	background-size: 100% 100%;
+}
+
+#logo {
+
+    position : absolute; top : 20px; left : 20px;
+    width:220px;
+	height:159px;
+}
+
+#dynamite {
+
+    position: absolute; top : 170px; left : 627px;
+    z-index: 2;
+    width: 17px;
+    height: 40px;
+}
+
+#explosion {
+
+    position: absolute; top : 155px; left : 620px;
+    z-index : 3;
+    width: 30px;
+    height: 30px;
+}
+
+#inscriptionTitre {
+
+    Position : relative; top : 140px;
+    font-size: 60px;
+    font-weight: 800;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(https://www.chaletdejardin.fr/wp/wp-content/uploads/2016/07/Bois-naturel-dabri-de-jardin.jpg);
+    text-align: center;
+    z-index: 1;
+}
