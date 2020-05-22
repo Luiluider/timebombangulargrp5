@@ -23,8 +23,15 @@ export class LobbyComponent implements OnInit {
     this.srvMatch.createMatch(this.match)
   }
 
-  public rejoindreMatch(){
-    this.srvMatch.joinMatch();
+  public rejoindreMatch(m){
+    this.srvMatch.joinMatch(m);
+  }
+
+  public regarderMatch(m){
+  }
+
+  public supprimerMatch(m){
+    this.srvMatch.deleteMatch(m);
   }
 
 

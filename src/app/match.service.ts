@@ -33,33 +33,39 @@ export class MatchService {
 
   public createMatch(match) {
     this.http.post<Match>(this.apiUrl, match, this.appConfig.httpOptions)
-    .subscribe(respMatch => {this.loadCurrentMatches()});
+    .subscribe(respMatch => {
+      this.router.navigate(['/match']);
+    });
   }
   // - Créer une partie -
 // [POST] http://176.143.99.66:8080/api/matches (name, size)
 
-  public Unepartiedetaillee(id) {
-    this.http.get<Match>(this.apiUrl + "/{id}")
+  public Unepartiedetaillee(match) {
+    this.http.get<Match>(this.apiUrl + "/" + match.id)
     .subscribe(respMatch => this.match = respMatch);
   }
   // - Une partie détaillée -
 // [GET] http://176.143.99.66:8080/api/matches/idPartie
 
   public deleteMatch(match) {
-    this.http.delete<Boolean>(`${this.apiUrl}/${match.id}`)
+    this.http.delete<Boolean>(`${this.apiUrl}/${match.id}`,this.appConfig.httpOptions)
     .subscribe(resp => {
       if (resp) {
-      let index =this.matches.indexOf(match);
-      this.matches.splice(index,1)
+      let index = this.matches.indexOf(match);
+      this.matches.splice(index,0);
     }
+    this.loadCurrentMatches();
     });
 }
   // - Supprimer une partie -
 // [DELETE] http://176.143.99.66:8080/api/matches/idPartie
 
-  public joinMatch() {
-  //   this.http.put<Match>(`${this.apiUrl}/${match.id}`,match)
-  // .subscribe();   
+  public joinMatch(match) {
+    this.http.put<Match>(this.apiUrl + "/" + match.id, this.match, this.appConfig.httpOptions)
+    .subscribe(respMatch => {
+        this.match = respMatch;
+      this.router.navigate(['/match']);
+      })
   }
   // - Rejoindre une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie

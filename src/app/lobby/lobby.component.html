@@ -28,7 +28,7 @@
 
 
 <div>
-  <table class = "table-striped">
+  <table class = "table-striped col-sm-12">
     <thead>
       <tr>
         <th>Nom</th>
@@ -36,7 +36,8 @@
         <th>Taille</th>
         <th>Joueurs</th>
         <th>Etat</th>
-        <th>Action</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
   
@@ -47,9 +48,9 @@
         <td>{{ m.size }}</td>
         <td>{{ m.players.length }} / {{ m.size }}</td>
         <td>{{ m.state }}</td>
-        <td>
-          <button class = "btn btn-primary">Rejoindre</button>
-        </td>
+        <td><button class = "btn btn-primary" (click) = "rejoindreMatch(m)" >Rejoindre</button></td>
+        <td> <button class = "btn btn-success" (click) = "regarderMatch(m)" >Spectate</button></td>
+        <td> <button class = "btn btn-danger" (click) = "supprimerMatch(m)" >Détruire</button></td>
       </tr>
     </tbody>   
   </table>

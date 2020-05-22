@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'lobby', component: LobbyComponent },
+  { path: 'match', component: MatchComponent },
   { path: '', redirectTo: 'connexion', pathMatch: 'full' },
   { path: '**', component: ConnexionComponent }
 ];

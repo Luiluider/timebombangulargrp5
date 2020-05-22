@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { AppConfigService } from '../app-config.service';
 
 @Component({
   selector: 'app-connexion',
@@ -11,11 +12,13 @@ import { Router } from '@angular/router';
 export class ConnexionComponent implements OnInit {
   user = new User();
 
-  constructor(private srvUser: UserService, private router: Router) { }
+  constructor(private srvUser: UserService, private appConfig: AppConfigService, private router: Router) { }
 
   ngOnInit(): void {}
 
   public seConnecter() {
+    this.appConfig.login = this.user.username;
+    this.appConfig.mdp = this.user.password;
     this.srvUser.connexion(this.user);
   }
 
