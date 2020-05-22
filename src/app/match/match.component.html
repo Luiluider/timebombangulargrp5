@@ -1,1 +1,49 @@
-<p>match works!</p>
+<button *ngIf="isPlaying" (click)="lancerPartie()">Commencer partie</button>
+
+<!--Div des infos-->
+<div>
+Vous etes {{ match.currentRole }}
+<br/>
+<br/>
+<br/>
+Votre main est composés de 
+<!--nombre de fils sur cette manche--> fils et <!--bombe sur cette manche--> Bombe
+</div>
+
+
+<div *ngFor="let player of match.players">
+    <div *ngFor= "let card of player.hand">
+        <div *ngIf="card.revealed==true">
+            Carte révélé
+            <!--
+            <div *ngIf="card.type=bait" ><img src="/assets/bait.png"></div>
+            <div *ngIf="card.type=diffuse" ><img src="/assets/diffuse.png"></div>
+            <div *ngIf="card.type=bomb" ><img src="/assets/bomb.png"></div>
+            -->
+        </div>
+        <div *ngIf="card.revealed==false" >
+            Carte pas révélé
+            <!--<img src="/assets/unrevealed.png">-->
+        </div>
+    </div>
+</div>
+
+
+
+<!--Montrer son role-->
+<!--Donner les infos de sa main de la manche en cours-->
+<!--Montrer les infos de la partie en cours: nombre de bait et fil de désarmorcage coupés-->
+
+
+
+
+
+
+
+<!--Boucle pour montrer Main de chaque joueur avec leur nom
+Possibilité d'action sur chaque fil que l'on peut couper
+Bloquer l'action sur les cartes non-actionnable(cartes du joueur qui a coupé precedemment ou fils déjà coupés)
+-->
+
+<!--Distribuer aléatoirement les cartes au début de la partie-->
+<!--Au bout de nbrdejoueur fils coupés, passer à la manche suivante et redistribuer les cartes-->
