@@ -13,8 +13,7 @@ export class LobbyComponent implements OnInit {
   constructor(public srvMatch: MatchService, public srvUser: UserService) { }
 
   ngOnInit(): void {
-    this.srvMatch.reload();
-    this.srvUser.reload();
+    this.srvMatch.loadCurrentMatches();
   }
 
 

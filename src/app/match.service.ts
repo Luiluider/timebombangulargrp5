@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Match } from './match';
 import { AppConfigService } from './app-config.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +10,11 @@ import { HttpClient } from '@angular/common/http';
 export class MatchService {
   private apiUrl: string="";
   public matches: Array<Match>=[];
+  public terminatedMatches: Array<Match>=[];
 
-  constructor(private appConfig: AppConfigService, private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private http: HttpClient, private router: Router) {
     this.apiUrl = `${ this.appConfig.url}/matches`
    }
-
-   public reload() {
-    this.http.get<Array<Match>>(this.apiUrl)
-    .subscribe(matches => this.matches = matches);
-  }
-
 
    public loadCurrentMatches() {
    this.http.get<Array<Match>>(this.apiUrl)
@@ -28,20 +24,24 @@ export class MatchService {
 // [GET] http://176.143.99.66:8080/api/matches
 
    public loadHistory() {
-    this.http.get<Array<Match>>(`${ this.apiUrl}/terminated`)
-    .subscribe(matches => this.matches = matches);
+    this.http.get<Array<Match>>(this.apiUrl + "/terminated")
+    .subscribe(matches => this.terminatedMatches = matches);
   }
   // - Liste des parties terminées -
 // [GET] http://176.143.99.66:8080/api/matches/terminated
 
-  public createMatch() {
-   
+  public createMatch(match) {
+    this.http.post<Match>(this.apiUrl, match)
+    .subscribe(respMatch => {
+        this.Unepartiedetaillee(respMatch.id);
+    });
   }
   // - Créer une partie -
 // [POST] http://176.143.99.66:8080/api/matches (name, size)
 
-  public Unepartiedetaillee() {
-   
+  public Unepartiedetaillee(id) {
+    this.http.get<Array<Match>>(this.apiUrl + "/{id}")
+    .subscribe(respMatch => this.router.navigate(['/match']));
   }
   // - Une partie détaillée -
 // [GET] http://176.143.99.66:8080/api/matches/idPartie
