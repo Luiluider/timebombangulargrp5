@@ -11,6 +11,7 @@ export class MatchService {
   private apiUrl: string="";
   public matches: Array<Match>=[];
   public terminatedMatches: Array<Match>=[];
+  public match: Match;
 
   constructor(private appConfig: AppConfigService, private http: HttpClient, private router: Router) {
     this.apiUrl = `${ this.appConfig.url}/matches`
@@ -32,9 +33,7 @@ export class MatchService {
 
   public createMatch(match) {
     this.http.post<Match>(this.apiUrl, match)
-    .subscribe(respMatch => {
-        this.Unepartiedetaillee(respMatch.id);
-    });
+    .subscribe(respMatch => { this.loadCurrentMatches()});
   }
   // - Créer une partie -
 // [POST] http://176.143.99.66:8080/api/matches (name, size)
