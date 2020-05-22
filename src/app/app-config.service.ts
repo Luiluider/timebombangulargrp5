@@ -13,8 +13,8 @@ export class AppConfigService {
 
   constructor() {
     let myHeaders: HttpHeaders = new HttpHeaders();
-    //myHeaders = myHeaders.append('Authorization', 'Basic ' + btoa(login +":"+ mdp));
     myHeaders = myHeaders.append('Authorization', 'Basic ' + btoa('flo:mdp'));
+    //myHeaders = myHeaders.append('Authorization', 'Basic ' + btoa(this.login + ':' + this.mdp));
     this.httpOptions = { headers: myHeaders};
    }
 

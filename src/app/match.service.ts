@@ -11,7 +11,7 @@ export class MatchService {
   private apiUrl: string="";
   public matches: Array<Match>=[];
   public terminatedMatches: Array<Match>=[];
-  public match: Match;
+  public match: Match = new Match();
 
   constructor(private appConfig: AppConfigService, private http: HttpClient, private router: Router) {
     this.apiUrl = `${ this.appConfig.url}/matches`
@@ -32,15 +32,15 @@ export class MatchService {
 // [GET] http://176.143.99.66:8080/api/matches/terminated
 
   public createMatch(match) {
-    this.http.post<Match>(this.apiUrl, match)
-    .subscribe(respMatch => { this.loadCurrentMatches()});
+    this.http.post<Match>(this.apiUrl, match, this.appConfig.httpOptions)
+    .subscribe(respMatch => {this.loadCurrentMatches()});
   }
   // - Créer une partie -
 // [POST] http://176.143.99.66:8080/api/matches (name, size)
 
   public Unepartiedetaillee(id) {
-    this.http.get<Array<Match>>(this.apiUrl + "/{id}")
-    .subscribe(respMatch => this.router.navigate(['/match']));
+    this.http.get<Match>(this.apiUrl + "/{id}")
+    .subscribe(respMatch => this.match = respMatch);
   }
   // - Une partie détaillée -
 // [GET] http://176.143.99.66:8080/api/matches/idPartie
@@ -52,7 +52,7 @@ export class MatchService {
 // [DELETE] http://176.143.99.66:8080/api/matches/idPartie
 
   public joinMatch() {
-   
+    
   }
   // - Rejoindre une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie

@@ -20,14 +20,11 @@ export class LobbyComponent implements OnInit {
 
   public creerPartie()
   {
-    this.match.owner = this.srvUser.user;
     this.srvMatch.createMatch(this.match)
   }
 
   public rejoindreMatch(){
-    //Gerer le fait de rejoindre en 
     this.srvMatch.joinMatch();
-      
   }
 
 

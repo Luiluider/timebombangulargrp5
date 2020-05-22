@@ -31,10 +31,11 @@
   <table class = "table-striped">
     <thead>
       <tr>
-        <th>Nom de la partie</th>
-        <th>Taille de la partie</th>
-        <th>Nombre de joueurs</th>
-        <th>Etat de la partie</th>
+        <th>Nom</th>
+        <th>Créateur</th>
+        <th>Taille</th>
+        <th>Joueurs</th>
+        <th>Etat</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -42,6 +43,7 @@
     <tbody>
       <tr *ngFor="let m of srvMatch.matches">
         <td>{{ m.name }}</td>
+        <td>{{ m.owner.name }}</td>
         <td>{{ m.size }}</td>
         <td>{{ m.players.length }} / {{ m.size }}</td>
         <td>{{ m.state }}</td>
