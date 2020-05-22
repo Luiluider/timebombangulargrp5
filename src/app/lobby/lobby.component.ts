@@ -33,11 +33,4 @@ export class LobbyComponent implements OnInit {
   public supprimerMatch(m){
     this.srvMatch.deleteMatch(m);
   }
-
-
-
-
-
-
-
 }

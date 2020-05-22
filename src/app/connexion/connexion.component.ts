@@ -17,8 +17,7 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {}
 
   public seConnecter() {
-    this.appConfig.login = this.user.username;
-    this.appConfig.mdp = this.user.password;
+    this.appConfig.setHeaders(this.user.username,this.user.password)
     this.srvUser.connexion(this.user);
   }
 

@@ -1,58 +1,57 @@
-<p>Voici la liste des tables que vous pouvez rejoindre</p>
-
-<div class="card m-3">
-	<div class="card-header">
-		<h5 class="card-title">Creation d'une partie</h5>
-	</div>
-
-    <div class="card-body">
-		  <div class="form-group row">
-			  <label for="matchname" class="col-sm-2 col-form-label">Nom: </label>
-			    <div class="col-sm-10">
-				    <input type="text" class="form-control" id="matchName" [(ngModel)]="match.name" />
-			    </div>
-      </div>
-
-      <div class="form-group row">
-			      <label for="matchsize" class="col-sm-2 col-form-label">Taille : {{ match.size }} </label>
-			      <div class="col-sm-10">
-				      <input type="range" class="custom-range" id="matchSize" [(ngModel)]="match.size" min="4" max="8"/>
-			      </div>
-      </div>        
+<div class = container-fluid id = background>
+  <div class="card m-3">
+    <div class="card-header">
+      <h5 class="card-title">Créer une partie</h5>
     </div>
 
-    <div class="card-footer text-right">
-      <button (click)= "creerPartie()" class = "btn btn-success">Créer une partie</button>
-    </div>    
+      <div class="card-body">
+        <div class="form-group row">
+          <label for="matchname" class="col-sm-2 col-form-label">Nom: </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="matchName" [(ngModel)]="match.name" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+              <label for="matchsize" class="col-sm-2 col-form-label">Taille : {{ match.size }} </label>
+              <div class="col-sm-10">
+                <input type="range" class="custom-range" id="matchSize" [(ngModel)]="match.size" min="4" max="8"/>
+              </div>
+        </div>        
+      </div>
+
+      <div class="card-footer text-right">
+        <button (click)= "creerPartie()" class = "btn btn-success">Créer une partie</button>
+      </div>    
+  </div>
+
+
+  <div>
+    <table class = "table-striped col-sm-12">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Créateur</th>
+          <th>Taille</th>
+          <th>Joueurs</th>
+          <th>Etat</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let m of srvMatch.matches">
+          <td>{{ m.name }}</td>
+          <td>{{ m.owner.name }}</td>
+          <td>{{ m.size }}</td>
+          <td>{{ m.players.length }} / {{ m.size }}</td>
+          <td>{{ m.state }}</td>
+          <td><button class = "btn btn-primary" (click) = "rejoindreMatch(m)" >Rejoindre</button></td>
+          <td> <button class = "btn btn-success" (click) = "regarderMatch(m)" >Spectate</button></td>
+          <td> <button class = "btn btn-danger" (click) = "supprimerMatch(m)" >Détruire</button></td>
+        </tr>
+      </tbody>   
+    </table>
+  </div>
 </div>
-
-
-<div>
-  <table class = "table-striped col-sm-12">
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Créateur</th>
-        <th>Taille</th>
-        <th>Joueurs</th>
-        <th>Etat</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <tr *ngFor="let m of srvMatch.matches">
-        <td>{{ m.name }}</td>
-        <td>{{ m.owner.name }}</td>
-        <td>{{ m.size }}</td>
-        <td>{{ m.players.length }} / {{ m.size }}</td>
-        <td>{{ m.state }}</td>
-        <td><button class = "btn btn-primary" (click) = "rejoindreMatch(m)" >Rejoindre</button></td>
-        <td> <button class = "btn btn-success" (click) = "regarderMatch(m)" >Spectate</button></td>
-        <td> <button class = "btn btn-danger" (click) = "supprimerMatch(m)" >Détruire</button></td>
-      </tr>
-    </tbody>   
-  </table>
-</div>
-
