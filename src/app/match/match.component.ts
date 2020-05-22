@@ -3,6 +3,7 @@ import { Match } from '../match';
 import { MatchService } from '../match.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { AppConfigService } from '../app-config.service';
 
 @Component({
   selector: 'app-match',
@@ -14,7 +15,7 @@ export class MatchComponent implements OnInit {
   isPlaying: boolean=false;
   user: User = new User();
 
-  constructor(public srvMatch: MatchService,public srvUser: UserService) { }
+  constructor(public srvMatch: MatchService,public srvUser: UserService,private appConfig: AppConfigService) { }
 
   ngOnInit(): void {
     this.user = this.srvUser.user
@@ -29,6 +30,8 @@ export class MatchComponent implements OnInit {
 
   public refresh()
   {
-    setInterval(() => {this.srvMatch.playMatch(this.match);}, 1000);
+    setInterval(() => {
+      this.appConfig.setHeaders(this.user.username,this.user.password)
+      console.log(this.user.username + " " + this.user.password);}, 1000);
   }
 }

@@ -3,6 +3,7 @@ import { MatchService } from '../match.service';
 import { UserService } from '../user.service';
 import { Match } from '../match';
 import { User } from '../user';
+import { AppConfigService } from '../app-config.service';
 
 @Component({
   selector: 'app-lobby',
@@ -14,7 +15,7 @@ export class LobbyComponent implements OnInit {
   match: Match = new Match();
   user: User = new User();
 
-  constructor(public srvMatch: MatchService, public srvUser: UserService) { }
+  constructor(public srvMatch: MatchService, public srvUser: UserService, private appConfig: AppConfigService) { }
 
   ngOnInit(): void {
     this.srvMatch.loadCurrentMatches();
