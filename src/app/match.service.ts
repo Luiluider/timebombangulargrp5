@@ -57,9 +57,9 @@ export class MatchService {
   // - Supprimer une partie -
 // [DELETE] http://176.143.99.66:8080/api/matches/idPartie
 
-  public joinMatch(match) {
-    this.http.put<Match>(`${this.apiUrl}/${match.id}`,match)
-  .subscribe();   
+  public joinMatch() {
+  //   this.http.put<Match>(`${this.apiUrl}/${match.id}`,match)
+  // .subscribe();   
   }
   // - Rejoindre une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie
