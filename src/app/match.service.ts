@@ -70,9 +70,24 @@ export class MatchService {
   // - Rejoindre une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie
 
-  public playMatch() {
-   
+
+public startMatch(match) {
+  this.http.put<Match>(this.apiUrl + "/" + match.id + "/start", this.match, this.appConfig.httpOptions)
+  .subscribe(respMatch => {
+      this.match = respMatch;
+    })
+}
+
+  //Démarrer une partie quand tous les jours sont présents
+  //[PUT] http://176.143.99.66:8080/api/matches/idPartie/start
+
+  public playMatch(match) {
+    this.http.put<Match>(this.apiUrl + "/" + match.id + "/play", this.match, this.appConfig.httpOptions)
+    .subscribe(respMatch => {
+      this.match = respMatch;
+    })
   }
+
   // - Jouer sur une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie/play (id) { id de la carte }
 
