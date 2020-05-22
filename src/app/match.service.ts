@@ -45,14 +45,21 @@ export class MatchService {
   // - Une partie détaillée -
 // [GET] http://176.143.99.66:8080/api/matches/idPartie
 
-  public deleteMatch() {
-   
-  }
+  public deleteMatch(match) {
+    this.http.delete<Boolean>(`${this.apiUrl}/${match.id}`)
+    .subscribe(resp => {
+      if (resp) {
+      let index =this.matches.indexOf(match);
+      this.matches.splice(index,1)
+    }
+    });
+}
   // - Supprimer une partie -
 // [DELETE] http://176.143.99.66:8080/api/matches/idPartie
 
-  public joinMatch() {
-    
+  public joinMatch(match) {
+    this.http.put<Match>(`${this.apiUrl}/${match.id}`,match)
+  .subscribe();   
   }
   // - Rejoindre une partie -
 // [PUT] http://176.143.99.66:8080/api/matches/idPartie
