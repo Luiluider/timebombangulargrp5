@@ -1,7 +1,14 @@
 <button *ngIf="isPlaying" (click)="lancerPartie()">Commencer partie</button>
+<div>
+    {{ match.id }}
+</div>
+<div *ngFor = "let p of match.players">
+    {{ p.name }}
+</div>
 
 <!--Div des infos-->
 <div>
+Vous etes {{ user.currentRole }}
 <br/>
 <br/>
 <br/>
